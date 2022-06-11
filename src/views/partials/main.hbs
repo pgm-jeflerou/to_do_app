@@ -1,0 +1,79 @@
+<main class="layout-container">
+    <div class="flex-container">
+        <div class="lists">
+            <div class="flex-container">
+                <h2>
+                    My lists
+                </h2>
+                <form class="new-category" action="/api/category" method="post">
+                    <input type="hidden" value="{{user.id}}" name="usersId">
+                    <input type="text" name="name">
+                    <button class="purple-button" type="submit"><i class="fa-solid fa-plus"></i></button>
+                </form>
+            </div>
+            <ul class="categories-list">
+                {{#each categories}}
+                <li class="flex-container category" data-id="{{id}}">
+                    <a href="/category/{{id}}">
+                        {{name}}
+                    </a>
+                    <div class="flex-container">
+                        <button class="edit-category-button" data-id="{{id}}" data-name="{{name}}">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
+                        <button class="delete-category-button" data-id="{{id}}" data-name="{{name}}">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+            <button class="theme-switcher">switch theme</button>
+        </div>
+        <div class="list flex-container">
+            <div class="toDo">
+                <h2>
+                    We've got things to do!
+                </h2>
+                <form class="new-task" action="/api/toDoItem" method="post">
+                    <input type="text" name="name">
+                    <input type="hidden" name="userId" value="{{user.id}}">
+                    <select name="category" id="category">
+                        {{#each categories}}
+                        <option value="{{name}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                    <button class="purple-button" type="submit"><i class="fa-solid fa-plus"></i></button>
+                </form>
+                <ul class="toDo-items">
+                    {{#each toDo}}
+                    <li class="flex-container" data-id="{{id}}" data-name="{{name}}">
+                        <button class="green-button"><i class="fa-solid fa-check"></i></button>
+                        <p>{{name}}</p>
+                        <div class="flex-container">
+                            {{#button 'submit' 'red-button'}}
+                            <i class="fa-solid fa-trash-can"></i>
+                            {{/button}}
+                            <button class="purple-button editTask-button">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="done">
+                <h2>
+                    Things you've done!
+                </h2>
+                <ul class="done-items">
+                    {{#each done}}
+                    <li data-id="{{id}}" class="flex-container" data-name="{{name}}">
+                        <p>{{name}}</p><button class="red-button"><i class="fa-solid fa-trash-can"></i></button>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>

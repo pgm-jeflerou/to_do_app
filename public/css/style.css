@@ -1,0 +1,382 @@
+/*
+* import other CSS
+*/
+
+@import url("reset.css");
+
+/*
+* themes
+*/
+
+.theme-dark {
+  --color-background-primary: #1f2023;
+  --color-background-secondary: #161518;
+  --color-background-tertiary: #d2d3d3;
+  --color-background-list: #262533;
+  --color-background-list-secondary: #2625338e;
+  --color-border-primary: #2c2d30;
+  --color-white: #FFF;
+  --color-black: #000;
+  --color-purple: #5c43ea;
+  --color-purple-secondary: #5c43ea96; 
+  --color-red: #ad4142;
+  --color-green: #519340;
+  --color-grey: #707173;
+}
+
+.theme-light {
+  --color-background-primary: #e3e9fd;
+  --color-background-secondary: #f0eef5;
+  --color-background-tertiary: #d2d3d3;
+  --color-background-list: #c3bffa;
+  --color-background-list-secondary: #bfbbf88e;
+  --color-border-primary: #2c2d30;
+  --color-white: #FFF;
+  --color-black: #000;
+  --color-purple: #5c43ea;
+  --color-purple-secondary: #5c43ea96; 
+  --color-red: #ad4142;
+  --color-green: #519340;
+  --color-grey: #707173;
+}
+
+/*
+* element selectors
+*/
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  padding-left: 1rem;
+}
+
+header {
+  height: 4rem;
+  padding: 1rem 1rem;
+  background-color: var(--color-background-primary);
+  border: 1px solid var(--color-border-primary);
+}
+
+button {
+  border: none;
+  background-color: inherit;
+  color: var(--color-white)
+}
+
+img {
+  width: 2rem;
+  display: block;
+}
+
+body {
+  background-color: var(--color-background-secondary);
+  color: var(--color-white)
+}
+
+button {
+  cursor: pointer;
+}
+
+/*
+* utility classes
+*/
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.layout-container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+
+.purple-button {
+  background-color: var(--color-purple);
+}
+
+.red-button {
+  background-color: var(--color-red);
+}
+
+.green-button {
+  background-color: var(--color-green);
+}
+
+/*
+* specific styling
+*/
+
+/*
+header
+*/
+
+.logo {
+  margin-right: 0.5rem;
+}
+
+.logout {
+  color: var(--color-grey) !important;
+}
+
+/*
+sidebar
+*/
+
+.new-category {
+  display: flex;
+  border: 1px solid var(--color-black);
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  overflow: hidden;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+}
+
+.new-category input {
+  display: block;
+  flex-grow: 1;
+  border: none;
+  background-color: var(--color-background-tertiary);
+}
+
+.new-category input:focus {
+  outline: none;
+}
+
+.new-category:focus-within {
+  border: none;
+  outline: 2px solid var(--color-purple);
+}
+
+.lists {
+  width: 25%;
+  background-color: var(--color-background-primary);
+  border: 1px solid var(--color-border-primary);
+  height: calc(100vh - 4rem);
+}
+
+.lists a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.lists h2 {
+  margin-top: 1rem;
+}
+
+.lists ul {
+  margin-top: 2rem;
+}
+
+.lists li {
+  padding: 1rem 0;
+  padding-left: 1rem
+}
+
+.lists li:hover {
+  border-left: 2px solid var(--color-purple-secondary);
+  color: var(--color-purple-secondary);
+  background-color: var(--color-background-list-secondary);
+}
+
+.current-list {
+  border-left: 2px solid var(--color-purple);
+  color: var(--color-purple);
+  background-color: var(--color-background-list);
+}
+
+.current-list:hover {
+  border-left: 2px solid var(--color-purple)!important;
+  color: var(--color-purple)!important;
+  background-color: var(--color-background-list) !important;
+}
+
+.delete-category-button, .edit-category-button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  opacity: 0.2;
+}
+
+.delete-category-button:hover, .edit-category-button:hover {
+  opacity: 1;
+}
+
+.theme-switcher {
+  display: block;
+  margin-top: 2rem;
+}
+
+/*
+to do and completed list
+*/
+
+.list {
+  width: 80%;
+}
+
+.toDo {
+  flex-basis: 50%;
+  flex-grow: 1;
+  padding-top: 1rem;
+  border-right: 1px solid var(--color-border-primary);
+}
+
+.toDo li {
+  margin: 1rem;
+  background-color: var(--color-background-tertiary);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.toDo li:hover {
+  transform: scale(1.02);
+}
+
+.toDo p {
+  flex-grow: 1;
+  margin-left: 0.5rem;
+  color: var(--color-black);
+}
+
+.done {
+  flex-basis: 50%;
+  flex-grow: 1;
+  padding-top: 1rem;
+}
+
+.done-items {
+  margin-top: 4.4rem;
+}
+
+.done li {
+  margin: 1rem;
+  background-color: var(--color-background-tertiary);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.done li:hover {
+  transform: scale(1.02);
+}
+
+.done p {
+  flex-grow: 1;
+  margin-left: 0.5rem;
+  color: var(--color-black);
+}
+
+.new-task {
+  display: flex;
+  margin: 1.5rem 1rem;
+  border: 1px solid var(--color-black);
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  overflow: hidden;
+}
+
+.new-task:focus-within {
+  border: none;
+  outline: 2px solid var(--color-purple);
+}
+
+.new-task select {
+  background-color: var(--color-background-tertiary);
+  height: 1.3rem;
+  border: none;
+}
+
+.new-task input {
+  display: block;
+  flex-grow: 1;
+  border: none;
+  background-color: var(--color-background-tertiary);
+}
+
+.new-task input:focus {
+  outline: none;
+}
+
+.new-task select:focus {
+  outline: none;
+}
+
+.new-task button {
+  width: 2rem;
+  height: 1.3rem;
+}
+
+/*
+* Register page
+*/
+
+.auth-container {
+  margin: 10rem auto;
+  width: fit-content;
+  overflow: hidden;
+  border: 1px solid var(--color-black);
+  background-color: var(--color-background-primary);
+}
+
+.auth-container h4 {
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+}
+
+.auth-container input {
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 0.2rem;
+  background-color: var(--color-background-tertiary);
+  border: none;
+}
+
+.auth-container input:focus-within {
+  outline: 2px solid var(--color-purple);
+}
+
+.footer-container input {
+  width: 45%;
+  margin: 0 auto;
+  display: block;
+}
+
+.footer-container .btn:hover {
+  outline: 2px solid var(--color-purple);
+}
+
+.auth-container a {
+  display: block;
+  text-align: right;
+  color: var(--color-grey);
+  text-decoration: none;
+  padding: 1rem;
+}
+
+.auth-container a:hover {
+  color: var(--color-purple);
+}
+
+.auth-container form {
+  width: 90%;
+  margin: 0 auto;
+}
+
